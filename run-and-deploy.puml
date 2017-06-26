@@ -1,0 +1,101 @@
+@startuml
+
+title Dart Run/Deploy
+
+cloud "Source code in \ndart language" as source
+
+node "Web" as web {
+
+    usecase dart2js [
+        dart2js
+        dartdevc
+    ]
+
+    [Angular Dart] as angular [[https://webdev.dartlang.org/angular]]
+    note right of angular
+        Exactly as in TypeScript:
+        - Components
+        - Directives
+        - Templates
+        - and more
+    end note
+    [angular] ---> dart2js
+
+    [OverReact] as overReact [[https://pub.dartlang.org/packages/over_react]]
+    note right of overReact: Statically typed React
+    overReact --> dart2js
+
+    [dart:html] as dartHtml [[https://webdev.dartlang.org/guides/web-programming#low-level-html]]
+    note top of dartHtml
+        Low level HTML
+        DOM modification
+        jquery like
+    end note
+
+    dartHtml -> dart2js
+
+    frame Browser {
+        artifact JavaScript
+        artifact EcmaScript6
+    }
+
+    dart2js --> JavaScript: production \n JS
+    dart2js --> EcmaScript6: human \n readable \n JS
+}
+
+node "Mobile" as mobile {
+    [Flutter] as flutter [[https://flutter.io]]
+    note right of flutter
+        Productive (hot reload)
+        Fast & Native (no webview)
+        React-like APIs
+    end note
+
+    frame iOS {
+        artifact IPA
+    }
+
+    frame Android {
+        artifact APK
+    }
+
+    flutter --> IPA: AOT compile to native code
+    flutter --> APK
+}
+
+node "Fuchsia OS" as fuchsia [[https://fuchsia.googlesource.com/docs/+/master/book.md]] {
+    [Flutter] as fuchsiaFlutter
+
+    package "Dart VM" as fuchsiaVM {
+        artifact fuchsiaApp [
+            Fuchsia App
+        ]
+    }
+
+    fuchsiaFlutter --> fuchsiaApp
+
+}
+
+node "Server" as server {
+    [Aqueduct] as aqueduct [[https://aqueduct.io/]]
+    [dart:io \n dart:path \n dart:args] as cmdlinePackages [[https://www.dartlang.org/tutorials/dart-vm/cmdline]]
+
+    package "Dart VM" {
+        artifact cmdline [
+            cmdline utils
+            scripts
+        ]
+        database "Enterprise App" as enterprise
+    }
+
+    aqueduct -> enterprise: REST \n ORM \n PostgreSQL
+    cmdlinePackages -> cmdline
+}
+
+
+source -up-|> mobile
+source -up-|> web
+source -down-|> fuchsia
+source -down-|> server
+
+@enduml
