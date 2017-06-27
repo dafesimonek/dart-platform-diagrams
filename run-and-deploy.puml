@@ -4,7 +4,8 @@ title Dart Run/Deploy
 
 cloud "Source code in \ndart language" as source
 
-node "Web" as web #lightyellow {
+
+node "Web" as web {
 
     usecase dart2js [
         dart2js

@@ -1,0 +1,56 @@
+@startuml
+
+cloud "developer + project + IDE" as devProject {
+    actor You
+    component [Intellij / WebStorm \nVS Code \nAtom] [[https://www.dartlang.org/tools#ides]]
+}
+
+cloud "packages" as pubRepo {
+    storage "pub repository" [[https://pub.dartlang.org/]]
+}
+
+agent "pub get \npub deps\npub upgrade" as pubDependencies [[https://www.dartlang.org/tools/pub]]
+
+agent stagehand [[http://stagehand.pub/]]
+
+agent "dart anazyler" as dartAnazyler [[https://www.dartlang.org/tools/analyzer]]
+
+agent dartfmt [[https://pub.dartlang.org/packages/dart_style]]
+
+agent "pub serve" as pubServe [[https://webdev.dartlang.org/tools/pub/pub-serve]]
+
+agent "pub run" as pubRun [[https://www.dartlang.org/tools/pub/cmd/pub-run]]
+
+agent "pub build" as pubBuild [[https://webdev.dartlang.org/tools/pub/pub-build]]
+
+agent observatory [[https://dart-lang.github.io/observatory/]]
+
+devProject <-> stagehand: create \nproject \nfrom \ntemplate
+devProject <-left-> dartfmt: format \ndart \nsource
+devProject <-> pubServe: Development \nweb server \nat localhost
+devProject <-up-> dartAnazyler: Static \nanalysis \nlint
+devProject <-right-> observatory: Profile \nfind leaks
+devProject <-> pubBuild: Build \nweb app
+devProject <-> pubRun: Run \ncmd line \napp
+devProject <-up-> pubDependencies: Manage \nlibraries \nand assets
+
+pubRepo <- pubDependencies
+
+'User -> (Start)
+'User --> (Analyze)
+'
+'Admin ---> (Analyze)
+'
+'note right of Admin : This is an example.
+'
+'note right of (Analyze)
+'A note can also
+'be on several lines
+'end note
+'
+'note "This note is connected\nto several objects." as N2
+'(Start) .. N2
+'N2 .. (Use)
+'
+
+@enduml
