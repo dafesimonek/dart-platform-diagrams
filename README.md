@@ -1,5 +1,5 @@
 ## Dart Platform Diagrams
-Collections of diagrams trying to describe Google's Dart platform. Created using PlantUML and Gravizo.
+Collections of diagrams trying to describe Google's Dart platform. Diagrams are generated from text sources using PlantUML and Gravizo tools.
 
 ### Deployment overview
 Dart is deployable to broad range of target environments
