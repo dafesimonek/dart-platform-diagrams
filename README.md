@@ -1,6 +1,6 @@
 ## Welcome to GitHub Pages
 
-https://g.gravizo.com/source/svg?https://github.com/dafesimonek/dart-platform-diagrams/edit/master/README.md
+https://g.gravizo.com/source/svg?https://raw.githubusercontent.com/dafesimonek/dart-platform-diagrams/master/run-and-deploy.puml
 
 You can use the [editor on GitHub](https://github.com/dafesimonek/dart-platform-diagrams/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
