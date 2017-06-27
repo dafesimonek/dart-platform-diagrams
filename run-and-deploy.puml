@@ -13,16 +13,14 @@ node "Web" as web {
 
     [Angular Dart] as angular [[https://webdev.dartlang.org/angular]]
     note right of angular
-        Exactly as in TypeScript:
-        - Components
-        - Directives
-        - Templates
-        - and more
+        Components, Directives, Templates...
+        similar to TypeScript version,
+        but with Dart language power & beauty
     end note
     [angular] ---> dart2js
 
     [OverReact] as overReact [[https://pub.dartlang.org/packages/over_react]]
-    note right of overReact: Statically typed React
+    note right of overReact: Statically typed \nReact
     overReact --> dart2js
 
     [dart:html] as dartHtml [[https://webdev.dartlang.org/guides/web-programming#low-level-html]]
@@ -63,7 +61,9 @@ node "Mobile" as mobile {
     flutter --> APK
 }
 
-node "Fuchsia OS" as fuchsia [[https://fuchsia.googlesource.com/docs/+/master/book.md]] {
+node "Fuchsia OS (IoT)" as fuchsia {
+    [Fuchsia UI] as fuchsiaUI [[https://fuchsia.googlesource.com/docs/+/master/book.md]]
+
     [Flutter] as fuchsiaFlutter
 
     package "Dart VM" as fuchsiaVM {
@@ -72,7 +72,8 @@ node "Fuchsia OS" as fuchsia [[https://fuchsia.googlesource.com/docs/+/master/bo
         ]
     }
 
-    fuchsiaFlutter --> fuchsiaApp
+    fuchsiaUI -> fuchsiaFlutter
+    fuchsiaFlutter -> fuchsiaApp
 
 }
 
