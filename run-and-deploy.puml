@@ -4,7 +4,7 @@ title Dart Run/Deploy
 
 cloud "Source code in \ndart language" as source
 
-node "Web" as web {
+node "Web" as web #lightyellow {
 
     usecase dart2js [
         dart2js
@@ -17,7 +17,7 @@ node "Web" as web {
         similar to TypeScript version,
         but with Dart language power & beauty
     end note
-    [angular] ---> dart2js
+    angular ---> dart2js
 
     [OverReact] as overReact [[https://pub.dartlang.org/packages/over_react]]
     note right of overReact: Statically typed \nReact
@@ -29,8 +29,14 @@ node "Web" as web {
         DOM modification
         jquery like
     end note
-
     dartHtml -> dart2js
+
+    [Stage XL] as stageXL [[http://www.stagexl.org/]]
+    note bottom of stageXL
+        2D Web games
+        Adobe Flash like APIs
+    end note
+    stageXL -> dart2js
 
     frame Browser {
         artifact JavaScript
