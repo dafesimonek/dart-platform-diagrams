@@ -1,15 +1,24 @@
 @startuml
 
-cloud "developer + project + IDE" as devProject {
-    actor You
-    component [Intellij / WebStorm \nVS Code \nAtom] [[https://www.dartlang.org/tools#ides]]
+node "Project" as devProject {
+    component [Intellij \nWebStorm \nVS Code \nAtom] [[https://www.dartlang.org/tools#ides]]
+    file "dart \nsources"
 }
 
 cloud "packages" as pubRepo {
     storage "pub repository" [[https://pub.dartlang.org/]]
 }
 
+node Browser {
+    component [localhost:8091 \ndev web server] as devServer
+    agent observatory [[https://dart-lang.github.io/observatory/]]
+}
+
+node "Dart VM" as dartVM
+
 agent "pub get \npub deps\npub upgrade" as pubDependencies [[https://www.dartlang.org/tools/pub]]
+
+usecase "Start" as newProject
 
 agent stagehand [[http://stagehand.pub/]]
 
@@ -19,22 +28,29 @@ agent dartfmt [[https://pub.dartlang.org/packages/dart_style]]
 
 agent "pub serve" as pubServe [[https://webdev.dartlang.org/tools/pub/pub-serve]]
 
-agent "pub run" as pubRun [[https://www.dartlang.org/tools/pub/cmd/pub-run]]
+agent "pub run \npub global" as pubRun [[https://www.dartlang.org/tools/pub/cmd/pub-run]]
 
 agent "pub build" as pubBuild [[https://webdev.dartlang.org/tools/pub/pub-build]]
 
-agent observatory [[https://dart-lang.github.io/observatory/]]
+agent "pub run test" as pubTest [[https://pub.dartlang.org/packages/test]]
 
-devProject <-> stagehand: create \nproject \nfrom \ntemplate
+file "web app \nartifact" as webApp
+
+newProject --> stagehand
+devProject <-up- stagehand: create \nproject \nfrom \ntemplate
 devProject <-left-> dartfmt: format \ndart \nsource
-devProject <-> pubServe: Development \nweb server \nat localhost
-devProject <-up-> dartAnazyler: Static \nanalysis \nlint
-devProject <-right-> observatory: Profile \nfind leaks
-devProject <-> pubBuild: Build \nweb app
-devProject <-> pubRun: Run \ncmd line \napp
-devProject <-up-> pubDependencies: Manage \nlibraries \nand assets
-
+devProject -> pubServe
+pubServe -> devServer
+devProject <-up-> dartAnazyler: static \nanalysis \nlint
+devServer <-right-> observatory: profile \nfind leaks
+devProject <--> pubBuild: build \nweb app
+devProject -> pubRun: Run \ncmd line \napp
+devProject <-left-> pubDependencies: Manage \nlibraries \nand assets
+pubBuild -> webApp
 pubRepo <- pubDependencies
+pubRun -> dartVM
+observatory <-> dartVM
+devProject -> pubTest: run unit tests
 
 'User -> (Start)
 'User --> (Analyze)
