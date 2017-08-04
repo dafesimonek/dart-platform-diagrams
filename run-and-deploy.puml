@@ -1,11 +1,34 @@
 @startuml
 
-title Dart Run/Deploy
+skinparam {
 
-cloud "Source code in \ndart language" as source
+    shadowing false
+    arrowColor #46749F
+
+    RectangleBorderColor #CCCCCC
+    RectangleBackgroundColor #F5F2F0
+
+    ComponentBorderColor #46749F
+    ComponentBackgroundColor #E5ECF0
+
+    UsecaseBorderColor #46749F
+    UsecaseBackgroundColor #E5ECF0
+
+    ControlBorderColor #0081C6
+    ControlBackgroundColor #55DDCA
+
+    frameBorderColor #0081C6
+    packageBorderColor #0081C6
+
+    noteBorderColor #468847
+    noteBackgroundColor #DFF0D8
+}
 
 
-node "Web" as web {
+control "<size:20>Dart Target</size> \n <size:20>Platforms</size>" as source
+
+
+rectangle "Web" as web {
 
     usecase dart2js [
         dart2js
@@ -39,7 +62,7 @@ node "Web" as web {
     end note
     stageXL -> dart2js
 
-    frame Browser {
+    frame Browser #E5ECF0 {
         artifact JavaScript
         artifact EcmaScript6
     }
@@ -48,7 +71,7 @@ node "Web" as web {
     dart2js --> EcmaScript6: human \n readable \n JS
 }
 
-node "Mobile" as mobile {
+rectangle "Mobile" as mobile #FFFDCC {
     [Flutter] as flutter [[https://flutter.io]]
     note right of flutter
         Productive (hot reload)
@@ -56,11 +79,11 @@ node "Mobile" as mobile {
         React-like APIs
     end note
 
-    frame iOS {
+    frame iOS #E5ECF0 {
         artifact IPA
     }
 
-    frame Android {
+    frame Android #E5ECF0 {
         artifact APK
     }
 
@@ -68,12 +91,12 @@ node "Mobile" as mobile {
     flutter --> APK
 }
 
-node "Fuchsia OS (IoT)" as fuchsia {
+rectangle "Fuchsia OS" as fuchsia #FDEFE7 {
     [Fuchsia UI] as fuchsiaUI [[https://fuchsia.googlesource.com/docs/+/master/book.md]]
 
     [Flutter] as fuchsiaFlutter
 
-    package "Dart VM" as fuchsiaVM {
+    package "Dart VM" as fuchsiaVM #E5ECF0 {
         artifact fuchsiaApp [
             Fuchsia App
         ]
@@ -84,19 +107,20 @@ node "Fuchsia OS (IoT)" as fuchsia {
 
 }
 
-node "Server" as server {
-    [Aqueduct] as aqueduct [[https://aqueduct.io/]]
+rectangle "Server" as server {
+    [Aqueduct \n Angel \nRedstone] as aqueduct [[https://aqueduct.io/]]
+
     [dart:io \n dart:path \n dart:args] as cmdlinePackages [[https://www.dartlang.org/tutorials/dart-vm/cmdline]]
 
-    package "Dart VM" {
+    package "Dart VM" #E5ECF0 {
         artifact cmdline [
             cmdline utils
             scripts
         ]
-        database "Enterprise App" as enterprise
+        database "Server App" as enterprise
     }
 
-    aqueduct -> enterprise: REST \n ORM \n PostgreSQL
+    aqueduct -> enterprise: REST \n ORM \n PostgreSQL \nMongoDB
     cmdlinePackages -> cmdline
 }
 

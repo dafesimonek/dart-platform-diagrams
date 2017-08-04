@@ -1,0 +1,213 @@
+@startuml
+
+skinparam {
+
+    shadowing false
+    arrowColor #46749F
+
+    RectangleBorderColor #CCCCCC
+    RectangleBackgroundColor #F5F2F0
+
+    ComponentBorderColor #46749F
+    ComponentBackgroundColor #E5ECF0
+
+    AgentBorderColor #46749F
+    AgentBackgroundColor #E5ECF0
+
+    UsecaseBorderColor #46749F
+    UsecaseBackgroundColor #E5ECF0
+
+    ControlBorderColor #0081C6
+    ControlBackgroundColor #55DDCA
+
+}
+
+
+rectangle "Functional" as functional {
+
+    agent "'First Class' \n Functions" as firstClassFunctions [[http://seznam.cz]]
+
+    agent "Arrow \n Functions" as arrowFunctions [[todo]]
+
+    agent "Rich \n Collections" as collectionOperators [[todo]]
+
+}
+
+rectangle "Reactive" as reactive {
+
+    [Streams] as streams [[todo]]
+
+
+}
+
+rectangle "Object Oriented" as objectOriented {
+
+    [Named \n Constructors] as constructors [[todo]]
+
+    [Method \n Cascades] as cascading [[todo]]
+
+    [Smart \n Getters / Setters] as gettersSetters [[todo]]
+
+    [Traits] as traits [[todo]]
+
+}
+
+rectangle "Asynchronous" as async {
+
+    [Futures] as futures [[http://www.seznam.cz]]
+
+    [async / await] as asyncAwait [[todo]]
+
+    [await for] as awaitFor [[todo]]
+
+    asyncAwait -up-> futures
+
+    rectangle "Concurrent" as concurrent #DDDDDD {
+
+        [Isolates] as isolates [[todo]]
+
+    }
+
+}
+
+awaitFor -> streams
+
+
+
+rectangle "Dynamic" as dynamic {
+
+    [noSuchMethod] as noSuchMethod [[todo]]
+
+    [Mirrors] as mirrors [[todo]]
+
+}
+
+
+rectangle "Various" as various {
+
+    [String \n Interpolation] as interpolation [[todo]]
+
+    [Generator \n Functions] as generators [[todo]]
+
+    agent "Named \n parameters" as namedParams [[todo]]
+
+}
+
+generators -> streams
+
+
+control "<size:20>Dart Language</size>\n<size:20>Sweet Features</size>" as dartLang
+
+
+dartLang -up-> functional
+dartLang -> async
+dartLang -down--> various
+dartLang -down-> dynamic
+dartLang -> reactive
+dartLang -> concurrent
+dartLang -up-> objectOriented
+
+
+
+'node "Web" as web {
+'
+'    usecase dart2js [
+'        dart2js
+'        dartdevc
+'    ]
+'
+'    [Angular Dart] as angular [[https://webdev.dartlang.org/angular]]
+'    note right of angular
+'        Components, Directives, Templates...
+'        similar to TypeScript version,
+'        but with Dart language power & beauty
+'    end note
+'    angular ---> dart2js
+'
+'    [OverReact] as overReact [[https://pub.dartlang.org/packages/over_react]]
+'    note right of overReact: Statically typed \nReact
+'    overReact --> dart2js
+'
+'    [dart:html] as dartHtml [[https://webdev.dartlang.org/guides/web-programming#low-level-html]]
+'    note top of dartHtml
+'        Low level HTML
+'        DOM modification
+'        jquery like
+'    end note
+'    dartHtml -> dart2js
+'
+'    [Stage XL] as stageXL [[http://www.stagexl.org/]]
+'    note bottom of stageXL
+'        2D Web games
+'        Adobe Flash like APIs
+'    end note
+'    stageXL -> dart2js
+'
+'    frame Browser {
+'        artifact JavaScript
+'        artifact EcmaScript6
+'    }
+'
+'    dart2js --> JavaScript: production \n JS
+'    dart2js --> EcmaScript6: human \n readable \n JS
+'}
+'
+'node "Mobile" as mobile {
+'    [Flutter] as flutter [[https://flutter.io]]
+'    note right of flutter
+'        Productive (hot reload)
+'        Fast & Native (no webview)
+'        React-like APIs
+'    end note
+'
+'    frame iOS {
+'        artifact IPA
+'    }
+'
+'    frame Android {
+'        artifact APK
+'    }
+'
+'    flutter --> IPA: AOT compile to native code
+'    flutter --> APK
+'}
+'
+'node "Fuchsia OS (IoT)" as fuchsia {
+'    [Fuchsia UI] as fuchsiaUI [[https://fuchsia.googlesource.com/docs/+/master/book.md]]
+'
+'    [Flutter] as fuchsiaFlutter
+'
+'    package "Dart VM" as fuchsiaVM {
+'        artifact fuchsiaApp [
+'            Fuchsia App
+'        ]
+'    }
+'
+'    fuchsiaUI -> fuchsiaFlutter
+'    fuchsiaFlutter -> fuchsiaApp
+'
+'}
+'
+'node "Server" as server {
+'    [Aqueduct] as aqueduct [[https://aqueduct.io/]]
+'    [dart:io \n dart:path \n dart:args] as cmdlinePackages [[https://www.dartlang.org/tutorials/dart-vm/cmdline]]
+'
+'    package "Dart VM" {
+'        artifact cmdline [
+'            cmdline utils
+'            scripts
+'        ]
+'        database "Enterprise App" as enterprise
+'    }
+'
+'    aqueduct -> enterprise: REST \n ORM \n PostgreSQL
+'    cmdlinePackages -> cmdline
+'}
+'
+'
+'source -up-|> mobile
+'source -up-|> web
+'source -down-|> fuchsia
+'source -down-|> server
+
+@enduml
