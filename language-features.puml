@@ -25,75 +25,86 @@ skinparam {
 
 rectangle "Functional" as functional {
 
-    agent "'First Class' \n Functions" as firstClassFunctions [[http://seznam.cz]]
+    agent "'First Class' \n Functions" as firstClassFunctions [[https://www.dartlang.org/guides/language/language-tour#functions]]
 
-    agent "Arrow \n Functions" as arrowFunctions [[todo]]
+    agent "Arrow \n Functions" as arrowFunctions [[https://www.dartlang.org/resources/dart-tips/dart-tips-ep-7]]
 
-    agent "Rich \n Collections" as collectionOperators [[todo]]
+    agent "Rich \n Collections" as collectionOperators [[https://api.dartlang.org/stable/dart-collection/dart-collection-library.html]]
+
+    agent "Named & Optional \n parameters" as namedParams [[https://www.dartlang.org/guides/language/language-tour#optional-parameters]]
+
+    agent "*sync \n functions" as syncGenerators [[https://www.dartlang.org/articles/language/beyond-async#synchronous-generators-sync]]
+
+    syncGenerators -up-> collectionOperators: produce
 
 }
 
 rectangle "Reactive" as reactive {
 
-    [Streams] as streams [[todo]]
+    agent "Streams" as streams [[https://www.dartlang.org/tutorials/language/streams]]
 
+    agent "await for" as awaitFor [[https://www.dartlang.org/articles/language/beyond-async#await-for]]
+
+    agent "*async \n functions" as asyncGenerators [[https://www.dartlang.org/articles/language/beyond-async#asynchronous-generators-async]]
+
+
+    awaitFor -> streams: consume
+
+    asyncGenerators -up-> streams: produce
 
 }
 
+reactive -> async: use
+
 rectangle "Object Oriented" as objectOriented {
 
-    [Named \n Constructors] as constructors [[todo]]
+    agent "Named & other \n Constructors" as constructors [[https://www.dartlang.org/guides/language/language-tour#named-constructors]]
 
-    [Method \n Cascades] as cascading [[todo]]
+    agent "Method \n Cascades" as cascading [[https://www.dartlang.org/guides/language/language-tour#cascade-notation-]]
 
-    [Smart \n Getters / Setters] as gettersSetters [[todo]]
+    agent "Smart \n Getters / Setters" as gettersSetters [[https://www.dartlang.org/guides/language/language-tour#getters-and-setters]]
 
-    [Traits] as traits [[todo]]
+    agent "Mixins" as mixins [[https://www.dartlang.org/guides/language/language-tour#adding-features-to-a-class-mixins]]
+
+    agent "Implicit \n Interfaces" as interfaces [[https://www.dartlang.org/guides/language/language-tour#implicit-interfaces]]
+
 
 }
 
 rectangle "Asynchronous" as async {
 
-    [Futures] as futures [[http://www.seznam.cz]]
+    agent "Futures" as futures [[https://www.dartlang.org/tutorials/language/futures]]
 
-    [async / await] as asyncAwait [[todo]]
-
-    [await for] as awaitFor [[todo]]
+    agent "async / await" as asyncAwait [[https://www.dartlang.org/tutorials/language/futures#async-and-await]]
 
     asyncAwait -up-> futures
 
     rectangle "Concurrent" as concurrent #DDDDDD {
 
-        [Isolates] as isolates [[todo]]
+        agent "Isolates" as isolates [[https://api.dartlang.org/stable/dart-isolate/dart-isolate-library.html]]
 
     }
 
 }
 
-awaitFor -> streams
-
-
-
 rectangle "Dynamic" as dynamic {
 
-    [noSuchMethod] as noSuchMethod [[todo]]
+    agent "dynamic \n type" as dynamicType [[https://www.dartlang.org/dart-2.0#strong-mode-and-static-typing]]
 
-    [Mirrors] as mirrors [[todo]]
+    agent "noSuchMethod" as noSuchMethod [[https://api.dartlang.org/stable/dart-core/Object/noSuchMethod.html]]
+
+    agent "Mirrors" as mirrors [[https://www.dartlang.org/articles/dart-vm/reflection-with-mirrors]]
 
 }
 
 
 rectangle "Various" as various {
 
-    [String \n Interpolation] as interpolation [[todo]]
+    agent "String \n Interpolation" as interpolation [[https://www.dartlang.org/guides/language/language-tour#strings]]
 
-    [Generator \n Functions] as generators [[todo]]
-
-    agent "Named \n parameters" as namedParams [[todo]]
+    agent "Null aware \n operators" as nullAware [[http://news.dartlang.org/2015/08/dart-112-released-with-null-aware.html]]
 
 }
-
-generators -> streams
 
 
 control "<size:20>Dart Language</size>\n<size:20>Sweet Features</size>" as dartLang
@@ -101,113 +112,9 @@ control "<size:20>Dart Language</size>\n<size:20>Sweet Features</size>" as dartL
 
 dartLang -up-> functional
 dartLang -> async
-dartLang -down--> various
-dartLang -down-> dynamic
+dartLang -> various
+dartLang -> dynamic
 dartLang -> reactive
-dartLang -> concurrent
 dartLang -up-> objectOriented
-
-
-
-'node "Web" as web {
-'
-'    usecase dart2js [
-'        dart2js
-'        dartdevc
-'    ]
-'
-'    [Angular Dart] as angular [[https://webdev.dartlang.org/angular]]
-'    note right of angular
-'        Components, Directives, Templates...
-'        similar to TypeScript version,
-'        but with Dart language power & beauty
-'    end note
-'    angular ---> dart2js
-'
-'    [OverReact] as overReact [[https://pub.dartlang.org/packages/over_react]]
-'    note right of overReact: Statically typed \nReact
-'    overReact --> dart2js
-'
-'    [dart:html] as dartHtml [[https://webdev.dartlang.org/guides/web-programming#low-level-html]]
-'    note top of dartHtml
-'        Low level HTML
-'        DOM modification
-'        jquery like
-'    end note
-'    dartHtml -> dart2js
-'
-'    [Stage XL] as stageXL [[http://www.stagexl.org/]]
-'    note bottom of stageXL
-'        2D Web games
-'        Adobe Flash like APIs
-'    end note
-'    stageXL -> dart2js
-'
-'    frame Browser {
-'        artifact JavaScript
-'        artifact EcmaScript6
-'    }
-'
-'    dart2js --> JavaScript: production \n JS
-'    dart2js --> EcmaScript6: human \n readable \n JS
-'}
-'
-'node "Mobile" as mobile {
-'    [Flutter] as flutter [[https://flutter.io]]
-'    note right of flutter
-'        Productive (hot reload)
-'        Fast & Native (no webview)
-'        React-like APIs
-'    end note
-'
-'    frame iOS {
-'        artifact IPA
-'    }
-'
-'    frame Android {
-'        artifact APK
-'    }
-'
-'    flutter --> IPA: AOT compile to native code
-'    flutter --> APK
-'}
-'
-'node "Fuchsia OS (IoT)" as fuchsia {
-'    [Fuchsia UI] as fuchsiaUI [[https://fuchsia.googlesource.com/docs/+/master/book.md]]
-'
-'    [Flutter] as fuchsiaFlutter
-'
-'    package "Dart VM" as fuchsiaVM {
-'        artifact fuchsiaApp [
-'            Fuchsia App
-'        ]
-'    }
-'
-'    fuchsiaUI -> fuchsiaFlutter
-'    fuchsiaFlutter -> fuchsiaApp
-'
-'}
-'
-'node "Server" as server {
-'    [Aqueduct] as aqueduct [[https://aqueduct.io/]]
-'    [dart:io \n dart:path \n dart:args] as cmdlinePackages [[https://www.dartlang.org/tutorials/dart-vm/cmdline]]
-'
-'    package "Dart VM" {
-'        artifact cmdline [
-'            cmdline utils
-'            scripts
-'        ]
-'        database "Enterprise App" as enterprise
-'    }
-'
-'    aqueduct -> enterprise: REST \n ORM \n PostgreSQL
-'    cmdlinePackages -> cmdline
-'}
-'
-'
-'source -up-|> mobile
-'source -up-|> web
-'source -down-|> fuchsia
-'source -down-|> server
 
 @enduml
