@@ -1,24 +1,58 @@
 @startuml
 
-node "Project" as devProject {
-    component [Intellij \nWebStorm \nVS Code \nAtom] [[https://www.dartlang.org/tools#ides]]
-    file "dart \nsources"
+skinparam {
+
+    shadowing false
+    arrowColor #46749F
+
+    RectangleBorderColor #CCCCCC
+    RectangleBackgroundColor #F5F2F0
+
+    ComponentBorderColor #46749F
+    ComponentBackgroundColor #E5ECF0
+
+    UsecaseBorderColor #46749F
+    UsecaseBackgroundColor #E5ECF0
+
+    ControlBorderColor #0081C6
+    ControlBackgroundColor #55DDCA
+
+    frameBorderColor #0081C6
+    packageBorderColor #0081C6
+
+    AgentBorderColor #468847
+    AgentBackgroundColor #DFF0D8
+
 }
+
+rectangle {
+
+    control "<size:18>Dart \n <size:18>Project" as devProject
+
+    component [Intellij \nWebStorm \nVS Code \nAtom] as ides [[https://www.dartlang.org/tools#ides]]
+
+    ides <-> devProject
+
+}
+
 
 cloud "packages" as pubRepo {
     storage "pub repository" [[https://pub.dartlang.org/]]
 }
 
-node Browser {
+package Browser {
     component [localhost:8091 \ndev web server] as devServer
     agent observatory [[https://dart-lang.github.io/observatory/]]
+    file "web app \nartifact" as webApp
 }
 
-node "Dart VM" as dartVM
+package "Dart VM" as dartVM #E5ECF0 {
+    file "VM app" as vmApp
+}
 
 agent "pub get \npub deps\npub upgrade" as pubDependencies [[https://www.dartlang.org/tools/pub]]
 
-usecase "Start" as newProject
+usecase "<size:18>Start" as newProject
 
 agent stagehand [[http://stagehand.pub/]]
 
@@ -34,12 +68,11 @@ agent "pub build" as pubBuild [[https://webdev.dartlang.org/tools/pub/pub-build]
 
 agent "pub run test" as pubTest [[https://pub.dartlang.org/packages/test]]
 
-file "web app \nartifact" as webApp
 
 newProject --> stagehand
 devProject <-up- stagehand: create \nproject \nfrom \ntemplate
 devProject <-left-> dartfmt: format \ndart \nsource
-devProject -> pubServe
+devProject -> pubServe: develop \nweb app
 pubServe -> devServer
 devProject <-up-> dartAnazyler: static \nanalysis \nlint
 devServer <-right-> observatory: profile \nfind leaks
@@ -48,25 +81,11 @@ devProject -> pubRun: Run \ncmd line \napp
 devProject <-left-> pubDependencies: Manage \nlibraries \nand assets
 pubBuild -> webApp
 pubRepo <- pubDependencies
-pubRun -> dartVM
-observatory <-> dartVM
+pubRun -> vmApp
+observatory <-> dartVM: profile \nfind leaks
 devProject -> pubTest: run unit tests
+pubTest -> devServer: browser \n tests
+pubTest -> dartVM: VM \n tests
 
-'User -> (Start)
-'User --> (Analyze)
-'
-'Admin ---> (Analyze)
-'
-'note right of Admin : This is an example.
-'
-'note right of (Analyze)
-'A note can also
-'be on several lines
-'end note
-'
-'note "This note is connected\nto several objects." as N2
-'(Start) .. N2
-'N2 .. (Use)
-'
 
 @enduml

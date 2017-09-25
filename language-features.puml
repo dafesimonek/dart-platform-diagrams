@@ -35,26 +35,9 @@ rectangle "Functional" as functional {
 
     agent "*sync \n functions" as syncGenerators [[https://www.dartlang.org/articles/language/beyond-async#synchronous-generators-sync]]
 
-    syncGenerators -up-> collectionOperators: produce
+    syncGenerators -up-> collectionOperators: generate
 
 }
-
-rectangle "Reactive" as reactive {
-
-    agent "Streams" as streams [[https://www.dartlang.org/tutorials/language/streams]]
-
-    agent "await for" as awaitFor [[https://www.dartlang.org/articles/language/beyond-async#await-for]]
-
-    agent "*async \n functions" as asyncGenerators [[https://www.dartlang.org/articles/language/beyond-async#asynchronous-generators-async]]
-
-
-    awaitFor -> streams: consume
-
-    asyncGenerators -up-> streams: produce
-
-}
-
-reactive -> async: use
 
 rectangle "Object Oriented" as objectOriented {
 
@@ -77,9 +60,13 @@ rectangle "Asynchronous" as async {
 
     agent "async / await" as asyncAwait [[https://www.dartlang.org/tutorials/language/futures#async-and-await]]
 
-    asyncAwait -up-> futures
+    agent "Zones" as zones [[https://www.dartlang.org/articles/libraries/zones]]
 
-    rectangle "Concurrent" as concurrent #DDDDDD {
+    asyncAwait -up-> futures : builds on
+
+    zones -> futures : wrap
+
+    rectangle "Parallel" as concurrent #DDDDDD {
 
         agent "Isolates" as isolates [[https://api.dartlang.org/stable/dart-isolate/dart-isolate-library.html]]
 
@@ -87,16 +74,33 @@ rectangle "Asynchronous" as async {
 
 }
 
+rectangle "Reactive" as reactive {
+
+    agent "Streams" as streams [[https://www.dartlang.org/tutorials/language/streams]]
+
+    agent "await for" as awaitFor [[https://www.dartlang.org/articles/language/beyond-async#await-for]]
+
+    agent "*async \n functions" as asyncGenerators [[https://www.dartlang.org/articles/language/beyond-async#asynchronous-generators-async]]
+
+
+    awaitFor <- streams: consumed by
+
+    asyncGenerators -up-> streams: generate
+
+    isolates -> streams : communicate \n through
+
+}
+
+
 rectangle "Dynamic" as dynamic {
 
-    agent "dynamic \n type" as dynamicType [[https://www.dartlang.org/dart-2.0#strong-mode-and-static-typing]]
+    agent "type \n 'dynamic'" as dynamicType [[https://www.dartlang.org/dart-2.0#strong-mode-and-static-typing]]
 
     agent "noSuchMethod" as noSuchMethod [[https://api.dartlang.org/stable/dart-core/Object/noSuchMethod.html]]
 
     agent "Mirrors" as mirrors [[https://www.dartlang.org/articles/dart-vm/reflection-with-mirrors]]
 
 }
-
 
 rectangle "Various" as various {
 
