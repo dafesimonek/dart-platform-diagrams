@@ -1,5 +1,8 @@
 ## Dart Platform Diagrams
-Collections of clickable diagrams trying to describe Google's Dart platform. Diagrams are generated from text sources using PlantUML and Gravizo tools.
+ * Collections of clickable diagrams trying to describe awesome Dart platform
+ * Diagrams are text source based for easy modifications and embedding in your wiki, confluence, presentation etc 
+ * Diagrams are auto generated from text sources using [PlantUML](http://plantuml.com) and [Gravizo](http://gravizo.com) tools
+ * Contributions welcomed
 
 ### Deployment Overview
 Dart is deployable to broad range of target environments
