@@ -22,6 +22,10 @@ skinparam {
 
     noteBorderColor #468847
     noteBackgroundColor #DFF0D8
+
+    AgentBorderColor #468847
+    AgentBackgroundColor #DFF0D8
+
 }
 
 
@@ -30,54 +34,25 @@ control "<size:20>Dart Target</size> \n <size:20>Platforms</size>" as source
 
 rectangle "Web" as web {
 
-    usecase dart2js [
-        dart2js
-        dartdevc
-    ]
+    agent dartdevc [[https://webdev.dartlang.org/tools/dartdevc]]
 
-    [Angular Dart] as angular [[https://webdev.dartlang.org/angular]]
-    note right of angular
-        Components, Directives, Templates...
-        similar to TypeScript version,
-        but with Dart language power & beauty
-    end note
-    angular ---> dart2js
+    agent dart2js [[https://webdev.dartlang.org/tools/dart2js]]
 
-    [OverReact] as overReact [[https://pub.dartlang.org/packages/over_react]]
-    note right of overReact: Statically typed \nReact
-    overReact --> dart2js
-
-    [dart:html] as dartHtml [[https://webdev.dartlang.org/guides/web-programming#low-level-html]]
-    note top of dartHtml
-        Low level HTML
-        DOM modification
-        jquery like
-    end note
-    dartHtml -> dart2js
-
-    [Stage XL] as stageXL [[http://www.stagexl.org/]]
-    note bottom of stageXL
-        2D Web games
-        Adobe Flash like APIs
-    end note
-    stageXL -> dart2js
+    [Angular Dart \n OverReact \n Stage XL \n dart:html] as angular [[https://webdev.dartlang.org/angular]]
+    angular -down-> dart2js: production
+    angular -down-> dartdevc: development
 
     frame Browser #E5ECF0 {
         artifact JavaScript
         artifact EcmaScript6
     }
 
-    dart2js --> JavaScript: production \n JS
-    dart2js --> EcmaScript6: human \n readable \n JS
+    dart2js -> JavaScript: fast \n minified\n JS
+    dartdevc -> EcmaScript6: human \n readable \n JS
 }
 
 rectangle "Mobile" as mobile #FFFDCC {
     [Flutter] as flutter [[https://flutter.io]]
-    note right of flutter
-        Productive (hot reload)
-        Fast & Native (no webview)
-        React-like APIs
-    end note
 
     frame iOS #E5ECF0 {
         artifact IPA

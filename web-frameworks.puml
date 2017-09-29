@@ -1,0 +1,67 @@
+@startuml
+
+skinparam {
+
+    shadowing false
+    arrowColor #46749F
+
+    RectangleBorderColor #CCCCCC
+    RectangleBackgroundColor #F5F2F0
+
+    ComponentBorderColor #46749F
+    ComponentBackgroundColor #E5ECF0
+
+    UsecaseBorderColor #46749F
+    UsecaseBackgroundColor #E5ECF0
+
+    ControlBorderColor #0081C6
+    ControlBackgroundColor #55DDCA
+
+    frameBorderColor #0081C6
+    packageBorderColor #0081C6
+
+    noteBorderColor #468847
+    noteBackgroundColor #DFF0D8
+}
+
+
+actor "<size:20> Dart Web</size> \n <size:20>Developer</size>" as webDev
+
+
+[Angular Dart] as angular [[https://webdev.dartlang.org/angular]]
+note bottom of angular
+    Components, Directives, Templates...
+    similar to TypeScript version,
+    but with Dart language power & beauty
+end note
+
+rectangle [] as reactBox {
+
+    [OverReact] as overReact [[https://pub.dartlang.org/packages/over_react]]
+    note bottom of overReact: Statically typed \nReact
+
+    [React] as react [[https://pub.dartlang.org/packages/react]]
+    note bottom of react: Direct wrapper \nof ReactJS
+
+}
+
+[dart:html] as dartHtml [[https://webdev.dartlang.org/guides/web-programming#low-level-html]]
+note bottom of dartHtml
+    Low level HTML
+    DOM modification
+    jquery like
+end note
+
+[Stage XL] as stageXL [[http://www.stagexl.org/]]
+note bottom of stageXL
+    2D Web games
+    Adobe Flash like APIs
+end note
+
+webDev -down-> angular: enterprise
+webDev -down-> reactBox: react \nlike
+webDev -down-> stageXL: games
+webDev -down-> dartHtml: low \nlevel
+
+
+@enduml
