@@ -1,0 +1,74 @@
+@startuml
+
+skinparam {
+
+    shadowing false
+    arrowColor #46749F
+
+    RectangleBorderColor #CCCCCC
+    RectangleBackgroundColor #F5F2F0
+
+    ComponentBorderColor #46749F
+    ComponentBackgroundColor #E5ECF0
+
+    UsecaseBorderColor #46749F
+    UsecaseBackgroundColor #E5ECF0
+
+    ControlBorderColor #0081C6
+    ControlBackgroundColor #55DDCA
+
+    frameBorderColor #0081C6
+    packageBorderColor #0081C6
+
+    noteBorderColor #468847
+    noteBackgroundColor #DFF0D8
+}
+
+
+control "<size:20> Dart Server</size> \n <size:20>      Side</size>" as server
+
+
+[Angel] as angel [[https://pub.dartlang.org/packages/angel]]
+note top of angel
+    Extensible
+    Express and FeathersJS inspired
+    REST, GraphQL, JSON
+end note
+
+[Aqueduct] as aqueduct [[https://aqueduct.io/]]
+note top of aqueduct
+    Mobile oriented
+    Multi threaded, fast
+    REST, PostgreSQL ORM
+end note
+
+[Jaguar] as jaguar [[https://pub.dartlang.org/packages/jaguar]]
+note bottom of jaguar
+    Speed
+    Simplicity
+    Extensibility
+end note
+
+[Redstone] as redstone [[https://pub.dartlang.org/packages/redstone]]
+note bottom of redstone
+    Annotation driven
+    Micro-framework
+    Influenced by Flask
+end note
+
+[Command \nline] as cmdLine [[https://www.dartlang.org/tutorials/dart-vm/cmdline]]
+note right of cmdLine
+    dart:io
+    dart:path
+    dart:args
+end note
+
+
+server -up-> angel
+server -up-> aqueduct
+server -down-> jaguar
+server -down-> redstone
+server -right-> cmdLine
+
+
+@enduml
