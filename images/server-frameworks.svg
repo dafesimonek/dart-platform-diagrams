@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="510px" preserveAspectRatio="none" style="width:536px;height:510px;" version="1.1" viewBox="0 0 536 510" width="536px" zoomAndPan="magnify"><defs/><g><!--entity server--><ellipse cx="234.5" cy="235" fill="#55DDCA" rx="12" ry="12" style="stroke: #0081C6; stroke-width: 2.0;"/><polygon fill="#0081C6" points="230.5,223,236.5,218,234.5,223,236.5,228,230.5,223" style="stroke: #0081C6; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="113" x="181" y="269.5645">Dart Server</text><text fill="#000000" font-family="sans-serif" font-size="20" lengthAdjust="spacingAndGlyphs" textLength="44" x="211" y="292.8457">Side</text><!--entity angel--><a target="_top" xlink:actuate="onRequest" xlink:href="https://pub.dartlang.org/packages/angel" xlink:show="new" xlink:title="https://pub.dartlang.org/packages/angel" xlink:type="simple"><rect fill="#E5ECF0" height="36.2969" style="stroke: #46749F; stroke-width: 1.5;" width="59" x="120" y="123"/><rect fill="#E5ECF0" height="5" style="stroke: #46749F; stroke-width: 1.5;" width="10" x="115" y="128"/><rect fill="#E5ECF0" height="5" style="stroke: #46749F; stroke-width: 1.5;" width="10" x="115" y="149.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="39" x="130" y="145.9951">Angel</text></a><polygon fill="#DFF0D8" points="6,8,6,63.3984,231,63.3984,231,18,221,8,6,8" style="stroke: #468847; stroke-width: 1.0;"/><polygon fill="#DFF0D8" points="6,8,6,63.3984,122.483,63.3984,144.363,122.849,130.483,63.3984,231,63.3984,231,18,221,8,6,8" style="stroke: #468847; stroke-width: 1.0;"/><line style="stroke: #468847; stroke-width: 1.0;" x1="221" x2="221" y1="8" y2="18"/><line style="stroke: #468847; stroke-width: 1.0;" x1="231" x2="221" y1="18" y2="18"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="12" y="25.0669">Extensible</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="204" x="12" y="40.1997">Express and FeathersJS inspired</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="136" x="12" y="55.3325">REST, GraphQL, JSON</text><!--entity aqueduct--><a target="_top" xlink:actuate="onRequest" xlink:href="https://aqueduct.io/" xlink:show="new" xlink:title="https://aqueduct.io/" xlink:type="simple"><rect fill="#E5ECF0" height="36.2969" style="stroke: #46749F; stroke-width: 1.5;" width="87" x="276" y="123"/><rect fill="#E5ECF0" height="5" style="stroke: #46749F; stroke-width: 1.5;" width="10" x="271" y="128"/><rect fill="#E5ECF0" height="5" style="stroke: #46749F; stroke-width: 1.5;" width="10" x="271" y="149.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="67" x="286" y="145.9951">Aqueduct</text></a><polygon fill="#DFF0D8" points="266,8,266,63.3984,435,63.3984,435,18,425,8,266,8" style="stroke: #468847; stroke-width: 1.0;"/><polygon fill="#DFF0D8" points="266,8,266,63.3984,338.517,63.3984,324.637,122.849,346.517,63.3984,435,63.3984,435,18,425,8,266,8" style="stroke: #468847; stroke-width: 1.0;"/><line style="stroke: #468847; stroke-width: 1.0;" x1="425" x2="425" y1="8" y2="18"/><line style="stroke: #468847; stroke-width: 1.0;" x1="435" x2="425" y1="18" y2="18"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="98" x="272" y="25.0669">Mobile oriented</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="124" x="272" y="40.1997">Multi threaded, fast</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="148" x="272" y="55.3325">REST, PostgreSQL ORM</text><!--entity jaguar--><a target="_top" xlink:actuate="onRequest" xlink:href="https://pub.dartlang.org/packages/jaguar" xlink:show="new" xlink:title="https://pub.dartlang.org/packages/jaguar" xlink:type="simple"><rect fill="#E5ECF0" height="36.2969" style="stroke: #46749F; stroke-width: 1.5;" width="62" x="148.5" y="358"/><rect fill="#E5ECF0" height="5" style="stroke: #46749F; stroke-width: 1.5;" width="10" x="143.5" y="363"/><rect fill="#E5ECF0" height="5" style="stroke: #46749F; stroke-width: 1.5;" width="10" x="143.5" y="384.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="158.5" y="380.9951">Jaguar</text></a><polygon fill="#DFF0D8" points="120.5,454,120.5,509.3984,216.5,509.3984,216.5,464,206.5,454,120.5,454" style="stroke: #468847; stroke-width: 1.0;"/><polygon fill="#DFF0D8" points="120.5,454,120.5,509.3984,216.5,509.3984,216.5,464,206.5,454,175.353,454,177.684,394.091,167.353,454,120.5,454" style="stroke: #468847; stroke-width: 1.0;"/><line style="stroke: #468847; stroke-width: 1.0;" x1="206.5" x2="206.5" y1="454" y2="464"/><line style="stroke: #468847; stroke-width: 1.0;" x1="216.5" x2="206.5" y1="464" y2="464"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="41" x="126.5" y="471.0669">Speed</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="61" x="126.5" y="486.1997">Simplicity</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="75" x="126.5" y="501.3325">Extensibility</text><!--entity redstone--><a target="_top" xlink:actuate="onRequest" xlink:href="https://pub.dartlang.org/packages/redstone" xlink:show="new" xlink:title="https://pub.dartlang.org/packages/redstone" xlink:type="simple"><rect fill="#E5ECF0" height="36.2969" style="stroke: #46749F; stroke-width: 1.5;" width="88" x="267.5" y="358"/><rect fill="#E5ECF0" height="5" style="stroke: #46749F; stroke-width: 1.5;" width="10" x="262.5" y="363"/><rect fill="#E5ECF0" height="5" style="stroke: #46749F; stroke-width: 1.5;" width="10" x="262.5" y="384.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="68" x="277.5" y="380.9951">Redstone</text></a><polygon fill="#DFF0D8" points="252,454,252,509.3984,393,509.3984,393,464,383,454,252,454" style="stroke: #468847; stroke-width: 1.0;"/><polygon fill="#DFF0D8" points="252,454,252,509.3984,393,509.3984,393,464,383,454,323.647,454,313.316,394.091,315.647,454,252,454" style="stroke: #468847; stroke-width: 1.0;"/><line style="stroke: #468847; stroke-width: 1.0;" x1="383" x2="383" y1="454" y2="464"/><line style="stroke: #468847; stroke-width: 1.0;" x1="393" x2="383" y1="464" y2="464"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="113" x="258" y="471.0669">Annotation driven</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="106" x="258" y="486.1997">Micro-framework</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="120" x="258" y="501.3325">Influenced by Flask</text><!--entity cmdLine--><a target="_top" xlink:actuate="onRequest" xlink:href="https://www.dartlang.org/tutorials/dart-vm/cmdline" xlink:show="new" xlink:title="https://www.dartlang.org/tutorials/dart-vm/cmdline" xlink:type="simple"><rect fill="#E5ECF0" height="52.5938" style="stroke: #46749F; stroke-width: 1.5;" width="91" x="329" y="232"/><rect fill="#E5ECF0" height="5" style="stroke: #46749F; stroke-width: 1.5;" width="10" x="324" y="237"/><rect fill="#E5ECF0" height="5" style="stroke: #46749F; stroke-width: 1.5;" width="10" x="324" y="274.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="71" x="339" y="254.9951">Command</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="24" x="339" y="271.292">line</text></a><polygon fill="#DFF0D8" points="455.5,231,455.5,286.3984,535.5,286.3984,535.5,241,525.5,231,455.5,231" style="stroke: #468847; stroke-width: 1.0;"/><polygon fill="#DFF0D8" points="455.5,231,455.5,254.5,420.348,258.5,455.5,262.5,455.5,286.3984,535.5,286.3984,535.5,241,525.5,231,455.5,231" style="stroke: #468847; stroke-width: 1.0;"/><line style="stroke: #468847; stroke-width: 1.0;" x1="525.5" x2="525.5" y1="231" y2="241"/><line style="stroke: #468847; stroke-width: 1.0;" x1="535.5" x2="525.5" y1="241" y2="241"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="41" x="461.5" y="248.0669">dart:io</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="59" x="461.5" y="263.1997">dart:path</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="58" x="461.5" y="278.3325">dart:args</text><!--link angel to server--><path d="M165.146,163.26 C176.583,178.802 192.416,200.316 206.067,218.865 " fill="none" id="angel-server" style="stroke: #46749F; stroke-width: 1.0;"/><polygon fill="#46749F" points="162.042,159.042,164.1558,168.6613,165.006,163.0688,170.5986,163.919,162.042,159.042" style="stroke: #46749F; stroke-width: 1.0;"/><!--link aqueduct to server--><path d="M303.854,163.26 C292.417,178.802 276.584,200.316 262.933,218.865 " fill="none" id="aqueduct-server" style="stroke: #46749F; stroke-width: 1.0;"/><polygon fill="#46749F" points="306.958,159.042,298.4014,163.919,303.994,163.0688,304.8442,168.6613,306.958,159.042" style="stroke: #46749F; stroke-width: 1.0;"/><!--link server to jaguar--><path d="M216.033,298.281 C207.322,316.574 197.251,337.723 189.892,353.177 " fill="none" id="server-jaguar" style="stroke: #46749F; stroke-width: 1.0;"/><polygon fill="#46749F" points="187.7,357.781,195.1812,351.3754,189.8499,353.2668,187.9586,347.9355,187.7,357.781" style="stroke: #46749F; stroke-width: 1.0;"/><!--link server to redstone--><path d="M260.354,298.281 C272.654,316.731 286.892,338.087 297.217,353.575 " fill="none" id="server-redstone" style="stroke: #46749F; stroke-width: 1.0;"/><polygon fill="#46749F" points="300.02,357.781,298.3567,348.0736,297.2468,353.6205,291.6999,352.5107,300.02,357.781" style="stroke: #46749F; stroke-width: 1.0;"/><!--link server to cmdLine--><path d="M294.109,258.5 C304.004,258.5 313.898,258.5 323.792,258.5 " fill="none" id="server-cmdLine" style="stroke: #46749F; stroke-width: 1.0;"/><polygon fill="#46749F" points="328.966,258.5,319.966,254.5,323.966,258.5,319.966,262.5,328.966,258.5" style="stroke: #46749F; stroke-width: 1.0;"/><!--
+@startuml
+
+skinparam {
+
+    shadowing false
+    arrowColor #46749F
+
+    RectangleBorderColor #CCCCCC
+    RectangleBackgroundColor #F5F2F0
+
+    ComponentBorderColor #46749F
+    ComponentBackgroundColor #E5ECF0
+
+    UsecaseBorderColor #46749F
+    UsecaseBackgroundColor #E5ECF0
+
+    ControlBorderColor #0081C6
+    ControlBackgroundColor #55DDCA
+
+    frameBorderColor #0081C6
+    packageBorderColor #0081C6
+
+    noteBorderColor #468847
+    noteBackgroundColor #DFF0D8
+}
+
+
+control "<size:20> Dart Server</size> \n <size:20>      Side</size>" as server
+
+
+[Angel] as angel [[https://pub.dartlang.org/packages/angel]]
+note top of angel
+    Extensible
+    Express and FeathersJS inspired
+    REST, GraphQL, JSON
+end note
+
+[Aqueduct] as aqueduct [[https://aqueduct.io/]]
+note top of aqueduct
+    Mobile oriented
+    Multi threaded, fast
+    REST, PostgreSQL ORM
+end note
+
+[Jaguar] as jaguar [[https://pub.dartlang.org/packages/jaguar]]
+note bottom of jaguar
+    Speed
+    Simplicity
+    Extensibility
+end note
+
+[Redstone] as redstone [[https://pub.dartlang.org/packages/redstone]]
+note bottom of redstone
+    Annotation driven
+    Micro-framework
+    Influenced by Flask
+end note
+
+[Command \nline] as cmdLine [[https://www.dartlang.org/tutorials/dart-vm/cmdline]]
+note right of cmdLine
+    dart:io
+    dart:path
+    dart:args
+end note
+
+
+server -up-> angel
+server -up-> aqueduct
+server -down-> jaguar
+server -down-> redstone
+server -right-> cmdLine
+
+
+@enduml
+
+PlantUML version 1.2017.12(Wed Apr 26 18:06:36 CEST 2017)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 1.8.0_112-release-736-b21
+Operating System: Linux
+OS Version: 4.4.0-72-generic
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
